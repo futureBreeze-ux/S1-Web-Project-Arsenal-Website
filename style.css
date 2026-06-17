@@ -67,6 +67,26 @@ main {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
+.hero-tag {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFD700;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+.hero-image-frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 420px;
+}
+
 .hero-image {
   width: 420px;
   max-width: 45%;
@@ -404,10 +424,105 @@ footer {
   padding: 20px;
   margin-top: 40px;
 }
-/* ===== news cards== */
-.news-card {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+
+.gallery-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.85);
   padding: 20px;
+  z-index: 100;
+}
+
+.gallery-modal {
+  position: relative;
+  max-width: 1000px;
+  width: 100%;
+  background: #111;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.gallery-modal img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+.gallery-modal p {
+  margin-top: 16px;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.news-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.news-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(220, 20, 60, 0.08);
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.news-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.news-copy {
+  padding: 16px;
+}
+
+.news-copy h3 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.news-copy p {
+  margin-bottom: 12px;
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.news-copy a {
+  color: #DC143C;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.news-copy a:hover {
+  text-decoration: underline;
 }

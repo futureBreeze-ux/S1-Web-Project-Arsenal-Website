@@ -52,14 +52,197 @@
         </div>
       </div>
     </section>
-
-   
+    <!-- Latest News Section -->
+     <!-- can the cards be smaller? can you fix it-->
+    <section class="latest-news">
+      <h2>Latest News</h2>
+      <div class="news-cards">
+        <article class="news-card">
+          <img src="images/'Way off it' - Man Utd and Arsenal urged to___.jpeg" alt="Arsenal vs Manchester United">
+          <div class="news-copy">
+            <h3>Arsenal vs Manchester United: Match Report</h3>
+            <p>Arsenal secured a thrilling victory against Manchester United with a last-minute goal from Bukayo Saka. The match was filled with excitement and showcased the resilience of the Gunners.</p>
+            <a href="news1.html">Read More</a>
+          </div>
+        </article>
+        <article class="news-card">
+          <img src="images/download (55).jpeg" alt="Emirates Stadium atmosphere">
+          <div class="news-copy">
+            <h3>Fan Day at Emirates Stadium</h3>
+            <p>Fans are invited for an exclusive family day at Emirates Stadium with live activities, player visits, and new merchandise reveals.</p>
+            <a href="news2.html">Read More</a>
+          </div>
+        </article>
       </div>
     </section>
+
+    <section class="featured-players">
+      <h2>Featured Players</h2>
+      <div class="players-grid">
+        <div class="player-card">
+          <span class="player-number">7</span>
+          <img src="images/bukayo saka.jpeg" alt="Bukayo Saka">
+          <h3>Bukayo Saka</h3>
+          <p>Dynamic winger with incredible pace and finishing.</p>
+        </div>
+        <div class="player-card">
+          <span class="player-number">11</span>
+          <img src="images/download (53).jpeg" alt="Gabriel Martinelli">
+          <h3>Gabriel Martinelli</h3>
+          <p>Sharp forward known for skill, speed, and attacking threat.</p>
+        </div>
+        <div class="player-card">
+          <span class="player-number">2</span>
+          <img src="images/Saliba.jpeg" alt="William Saliba">
+          <h3>William Saliba</h3>
+          <p>Powerful centre-back and defensive cornerstone.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="photo-gallery">
+      <h2>Photo Gallery</h2>
+      <p>Click any image below to explore the stadium, team moments, and fan celebration in full size.</p>
+      <div class="gallery-grid">
+        <button class="gallery-item" data-image="images/Arsenal emirates stadium 2021 ✌️😍.jpeg" data-title="Emirates Stadium Panorama">
+          <img src="images/download (54).jpeg" alt="Emirates Stadium Panorama">
+          <h3>Emirates Stadium Panorama</h3>
+        </button>
+        <button class="gallery-item" data-image="images/download (3).jpeg" data-title="Match Day Moments">
+          <img src="images/My f_cking football club_ ❤️🤍.jpeg" alt="Match Day Moments">
+          <h3>Match Day Moments</h3>
+        </button>
+        <button class="gallery-item" data-image="images/Emirates stadium Arsenal.jpeg" data-title="Fan Celebration">
+          <img src="images/COLD_ 🥶🇸🇪.jpeg" alt="Fan Celebration">
+          <h3>Fan Celebration</h3>
+        </button>
+      </div>
+    </section>
+
+<section class="fan-zone">
+    <div class="fan-card">
+        <h3>⚽ Arsenal Trivia Challenge</h3>
+
+        <p id="question"></p>
+
+        <input type="text" id="answer" placeholder="Type your answer">
+
+        <br>
+
+        <button onclick="checkAnswer()">Submit</button>
+        <button onclick="nextQuestion()">Next Question</button>
+
+        <p id="result"></p>
+
+        <div id="score">
+            Score: <span id="scoreValue">0</span>
+        </div>
+    </div>
+</section>
+
+<script>
+const trivia = [
+    {
+        question: "In what year was Arsenal founded?",
+        answer: "1886"
+    },
+    {
+        question: "What is Arsenal's home stadium called?",
+        answer: "emirates stadium"
+    },
+    {
+        question: "Which city is Arsenal based in?",
+        answer: "london"
+    },
+    {
+        question: "What are Arsenal fans often called?",
+        answer: "gunners"
+    },
+    {
+        question: "What color is Arsenal's traditional home kit?",
+        answer: "red"
+    }
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+function loadQuestion() {
+    document.getElementById("question").textContent =
+        trivia[currentQuestion].question;
+}
+
+function checkAnswer() {
+    const userAnswer =
+        document.getElementById("answer").value.toLowerCase().trim();
+
+    const result = document.getElementById("result");
+
+    if (userAnswer === trivia[currentQuestion].answer) {
+        result.textContent = "✅ Correct!";
+        result.className = "correct";
+        score++;
+        document.getElementById("scoreValue").textContent = score;
+    } else {
+        result.textContent =
+            "❌ Incorrect. Correct answer: " +
+            trivia[currentQuestion].answer;
+        result.className = "incorrect";
+    }
+}
+
+function nextQuestion() {
+    currentQuestion = Math.floor(Math.random() * trivia.length);
+
+    document.getElementById("answer").value = "";
+    document.getElementById("result").textContent = "";
+
+    loadQuestion();
+}
+
+loadQuestion();
+</script>
   </main>
+
+  <div class="gallery-overlay hidden" id="galleryOverlay">
+    <div class="gallery-modal">
+      <button class="gallery-close" id="galleryClose">×</button>
+      <img id="galleryOverlayImage" src="" alt="Gallery Preview">
+      <p id="galleryOverlayCaption"></p>
+    </div>
+  </div>
 
   <footer>
     <p>&copy; 2026 Arsenal FC. All rights reserved.</p>
   </footer>
+
+  <script>
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const overlay = document.getElementById('galleryOverlay');
+    const overlayImage = document.getElementById('galleryOverlayImage');
+    const overlayCaption = document.getElementById('galleryOverlayCaption');
+    const galleryClose = document.getElementById('galleryClose');
+
+    galleryItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const src = item.dataset.image;
+        const title = item.dataset.title;
+        overlayImage.src = src;
+        overlayImage.alt = title;
+        overlayCaption.textContent = title;
+        overlay.classList.remove('hidden');
+      });
+    });
+
+    galleryClose.addEventListener('click', () => {
+      overlay.classList.add('hidden');
+    });
+
+    overlay.addEventListener('click', event => {
+      if (event.target === overlay) {
+        overlay.classList.add('hidden');
+      }
+    });
+  </script>
 </body>
 </html>
