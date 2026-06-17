@@ -93,7 +93,7 @@ main {
 
 .btn-primary {
   background-color: #FFD700;
-  color: #DC143C;
+  color:  HEX #EF0107, RGB (239, 1, 7), CMYK (0, 100, 97, 6), Pantone PMS 2347 C;
 }
 
 .btn-primary:hover {
