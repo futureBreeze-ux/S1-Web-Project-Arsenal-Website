@@ -41,49 +41,60 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/Arsenal emirates stadium 2021 ✌️😍.jpeg') center/cover;
-  background-attachment: fixed;
+  gap: 40px;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('images/Arsenal emirates stadium 2021 ✌️😍.jpeg') center/cover;
   color: white;
-  padding: 100px 40px;
-  min-height: 500px;
-  text-align: center;
+  padding: 80px 40px;
+  min-height: 520px;
+  text-align: left;
 }
 
 .hero-content {
   flex: 1;
-  padding: 0 40px;
-  max-width: 800px;
+  max-width: 700px;
 }
 
 .hero h1 {
-  font-size: 60px;
+  font-size: clamp(40px, 5vw, 64px);
   margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.85);
 }
 
 .hero p {
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 30px;
+  max-width: 620px;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .hero-image {
-  display: none;
+  width: 420px;
+  max-width: 45%;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  display: block;
 }
 
 /* ===== BUTTONS ===== */
 .cta-buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: 15px;
 }
 
 .btn {
-  padding: 12px 30px;
+  padding: 14px 32px;
   font-size: 16px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
   font-weight: bold;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
 }
 
 .btn a {
@@ -93,11 +104,63 @@ main {
 
 .btn-primary {
   background-color: #FFD700;
-  color:  HEX #EF0107, RGB (239, 1, 7), CMYK (0, 100, 97, 6), Pantone PMS 2347 C;
+  color: #DC143C;
 }
 
 .btn-primary:hover {
-  background-color: #FFC700;
+  background-color: #FFC400;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-secondary:hover {
+  background-color: white;
+  color: #DC143C;
+}
+
+/* ===== CLUB OVERVIEW ===== */
+.club-overview .overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.overview-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.overview-card h3 {
+  margin-bottom: 12px;
+  color: #DC143C;
+}
+
+.overview-card p {
+  color: #555;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .hero-image {
+    max-width: 100%;
+    width: auto;
+  }
+
+  nav {
+    padding: 20px 10px;
+  }
 }
 
 .btn-secondary {
@@ -117,7 +180,7 @@ section {
 }
 
 section h2 {
-  font-size: 36px;
+  font-size: clamp(28px, 3vw, 36px);
   margin-bottom: 30px;
   color: #DC143C;
 }
@@ -342,7 +405,7 @@ footer {
   margin-top: 40px;
 }
 /* ===== news cards== */
-.news-cards {
+.news-card {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
