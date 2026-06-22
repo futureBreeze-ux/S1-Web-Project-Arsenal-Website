@@ -92,7 +92,113 @@
       <p>Find out about ticket prices, seating options, and matchday information. This is a demo checkout — no payments are processed here.</p>
     </section>
     
+    <script>
+      const matches = [
+        { id: 1, date: '2026-08-15', time: '15:00', opponent: 'Manchester United', competition: 'Premier League', prices: { standard: 35, premium: 60, vip: 120 } },
+        { id: 2, date: '2026-08-29', time: '13:30', opponent: 'Chelsea', competition: 'Premier League', prices: { standard: 30, premium: 55, vip: 110 } },
+        { id: 3, date: '2026-09-12', time: '20:00', opponent: 'Tottenham', competition: 'Premier League', prices: { standard: 45, premium: 80, vip: 150 } }
+      ];
 
+      let selectedMatch = null;
+
+      function formatCurrency(n){ return '£' + n.toFixed(2); }
+
+      function renderMatches(){
+        const container = document.getElementById('matchList');
+        container.innerHTML = '';
+        matches.forEach(m => {
+          const div = document.createElement('div');
+          div.className = 'match-card ticket-card';
+          div.innerHTML = `
+            <div class="ticket-meta"><div class="match-date">${m.date} ${m.time}</div><div class="match-competition">${m.competition}</div></div>
+            <div class="match-teams">Arsenal vs ${m.opponent}</div>
+            <div class="small">From ${formatCurrency(m.prices.standard)} · Premium ${formatCurrency(m.prices.premium)} · VIP ${formatCurrency(m.prices.vip)}</div>
+            <div style="margin-top:12px;"><button class="btn btn-primary" onclick="openPurchase(${m.id})">Buy</button></div>
+          `;
+          container.appendChild(div);
+        });
+      }
+
+      function openPurchase(id){
+        selectedMatch = matches.find(x => x.id === id);
+        document.getElementById('selectedMatch').innerText = `${selectedMatch.date} ${selectedMatch.time} — Arsenal vs ${selectedMatch.opponent}`;
+        document.getElementById('seatType').value = 'standard';
+        document.getElementById('quantity').value = 1;
+        document.getElementById('buyerName').value = '';
+        document.getElementById('buyerEmail').value = '';
+        document.getElementById('purchasePanel').classList.remove('hidden');
+        document.getElementById('orders').classList.add('hidden');
+        updateTotal();
+        document.getElementById('purchasePanel').scrollIntoView({behavior:'smooth'});
+      }
+
+      function closePurchase(){
+        document.getElementById('purchasePanel').classList.add('hidden');
+      }
+
+      function updateTotal(){
+        const type = document.getElementById('seatType').value;
+        const qty = Math.max(1, parseInt(document.getElementById('quantity').value || 1));
+        const base = selectedMatch ? selectedMatch.prices[type] : 0;
+        const service = Math.max(1, Math.round(base * 0.05 * 100)/100); // 5% fee approx
+        const total = (base * qty) + service;
+        document.getElementById('pricePer').innerText = formatCurrency(base);
+        document.getElementById('summaryQty').innerText = qty;
+        document.getElementById('serviceFee').innerText = formatCurrency(service);
+        document.getElementById('totalPrice').innerText = formatCurrency(total);
+      }
+
+      function confirmPurchase(){
+        const name = document.getElementById('buyerName').value.trim();
+        const email = document.getElementById('buyerEmail').value.trim();
+        if(!name || !email){ alert('Please enter your name and email.'); return; }
+        const type = document.getElementById('seatType').value;
+        const qty = Math.max(1, parseInt(document.getElementById('quantity').value || 1));
+        const base = selectedMatch.prices[type];
+        const service = Math.max(1, Math.round(base * 0.05 * 100)/100);
+        const total = (base * qty) + service;
+
+        const order = {
+          id: 'ORD-' + Date.now(),
+          match: selectedMatch,
+          seatType: type,
+          quantity: qty,
+          buyer: { name, email },
+          pricePer: base,
+          serviceFee: service,
+          total,
+          purchasedAt: new Date().toISOString()
+        };
+        saveOrder(order);
+        showConfirmation(order);
+        document.getElementById('purchasePanel').classList.add('hidden');
+      }
+
+      function saveOrder(order){
+        const stored = JSON.parse(localStorage.getItem('orders')||'[]');
+        stored.push(order);
+        localStorage.setItem('orders', JSON.stringify(stored));
+      }
+
+      function showConfirmation(order){
+        const el = document.getElementById('confirmationDetails');
+        el.innerHTML = `
+          <div class="order-card">
+            <div><strong>Order ID:</strong> ${order.id}</div>
+            <div><strong>Match:</strong> ${order.match.date} ${order.match.time} — Arsenal vs ${order.match.opponent}</div>
+            <div><strong>Seat:</strong> ${order.seatType} · Quantity: ${order.quantity}</div>
+            <div><strong>Total:</strong> ${formatCurrency(order.total)}</div>
+            <div style="margin-top:8px;"><button class="btn" onclick="printOrder('${order.id}')">Print / Save Receipt</button></div>
+          </div>
+        `;
+        document.getElementById('confirmation').classList.remove('hidden');
+        document.getElementById('confirmation').scrollIntoView({behavior:'smooth'});
+      }
+
+
+
+      // initial render
+      renderMatches();
     </script>
     
   </main>
