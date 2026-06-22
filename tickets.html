@@ -195,7 +195,42 @@
         document.getElementById('confirmation').scrollIntoView({behavior:'smooth'});
       }
 
+      function printOrder(id){
+        const orders = JSON.parse(localStorage.getItem('orders')||'[]');
+        const order = orders.find(o => o.id === id);
+        if(!order) return alert('Order not found');
+        const w = window.open('', '_blank');
+        w.document.write('<pre style="font-family:Arial;">' + JSON.stringify(order, null, 2) + '</pre>');
+        w.print();
+      }
 
+      function renderOrders(){
+        const container = document.getElementById('ordersContainer');
+        const stored = JSON.parse(localStorage.getItem('orders')||'[]');
+        container.innerHTML = '';
+        if(stored.length === 0) container.innerHTML = '<div class="small">No orders yet.</div>';
+        stored.slice().reverse().forEach(o => {
+          const d = document.createElement('div');
+          d.className = 'order-card';
+          d.innerHTML = `
+            <div><strong>${o.id}</strong> · ${new Date(o.purchasedAt).toLocaleString()}</div>
+            <div>${o.match.date} ${o.match.time} — Arsenal vs ${o.match.opponent}</div>
+            <div>Seat: ${o.seatType} · Qty: ${o.quantity} · Total: ${formatCurrency(o.total)}</div>
+            <div style="margin-top:8px;"><button class="btn" onclick="printOrder('${o.id}')">Receipt</button></div>
+          `;
+          container.appendChild(d);
+        });
+        document.getElementById('orders').classList.remove('hidden');
+        document.getElementById('confirmation').classList.add('hidden');
+        document.getElementById('purchasePanel').classList.add('hidden');
+        document.getElementById('orders').scrollIntoView({behavior:'smooth'});
+      }
+
+      function clearOrders(){
+        if(!confirm('Clear all saved orders?')) return;
+        localStorage.removeItem('orders');
+        renderOrders();
+      }
 
       // initial render
       renderMatches();
