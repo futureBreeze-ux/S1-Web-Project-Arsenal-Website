@@ -399,6 +399,51 @@ section h2 {
   font-size: 18px;
 }
 
+/* ===== TICKETS PAGE ADDITIONS ===== */
+.ticket-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.ticket-card {
+  background: white;
+  padding: 18px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  border-left: 6px solid #DC143C;
+}
+
+.ticket-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.purchase-panel {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  max-width: 720px;
+  margin: 20px auto;
+}
+
+.form-row { display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+.form-row label { min-width:110px; color:#333; font-weight:600; }
+.form-row input, .form-row select { flex:1; padding:8px 10px; border-radius:6px; border:1px solid #ddd; }
+
+.order-summary { background:#f9f9f9; padding:12px; border-radius:6px; margin-top:12px; }
+.order-actions { display:flex; gap:10px; margin-top:14px; }
+.small { font-size:14px; color:#666; }
+
+.orders-list { max-width:900px; margin:10px auto; }
+.order-card { background:#fff; padding:12px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.04); margin-bottom:12px; }
+
+.hidden { display:none; }
+
 .player-card p {
   color: #666;
   margin: 0 0 10px 0;

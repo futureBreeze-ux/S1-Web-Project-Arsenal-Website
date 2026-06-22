@@ -19,20 +19,82 @@
     <a href="Be A Gunner.html">Be A Gunner</a>
   </nav>
   <main>
-   <header class="hero">
-    <h1>Tickets</h1>
-    <p>Get your tickets for Arsenal matches and events.</p>
-    <button onclick="document.getElementById('purchase').scrollIntoView()">
-      Buy Tickets
-    </button>
-  </header>
-  <section id="purchase">
-    <h2>Available Tickets</h2>
-    <p>Check out our available tickets for upcoming matches and events.</p>
-  </section>
-  <section id="ticket-info">
-    <h2>Ticket Information</h2>
-    <p>Find out about ticket prices, seating options, and matchday information.</p>
-  </section>
+    <header class="hero">
+      <div class="hero-content">
+        <span class="hero-tag">Tickets</span>
+        <h1>Get your tickets</h1>
+        <p>Buy tickets for upcoming Arsenal matches and club events. Select a match, choose seat type and quantity, then complete a quick checkout (demo).</p>
+        <div class="cta-buttons">
+          <button class="btn btn-primary" onclick="document.getElementById('matches').scrollIntoView()">View Matches</button>
+          <button class="btn btn-secondary" onclick="renderOrders()">My Orders</button>
+        </div>
+      </div>
+      <div class="hero-image-frame">
+        <img class="hero-image" src="images/Arsenal emirates stadium 2021 ✌️😍.jpeg" alt="Emirates Stadium">
+      </div>
+    </header>
+
+    <section id="matches" class="upcoming-matches">
+      <h2>Available Matches</h2>
+      <div id="matchList" class="match-list ticket-list"></div>
+    </section>
+
+    <section id="purchasePanel" class="purchase-panel hidden">
+      <h2>Purchase Tickets</h2>
+      <div id="selectedMatch" class="small"></div>
+      <div class="form-row">
+        <label>Seat Type</label>
+        <select id="seatType" onchange="updateTotal()">
+          <option value="standard">Standard</option>
+          <option value="premium">Premium</option>
+          <option value="vip">VIP</option>
+        </select>
+      </div>
+      <div class="form-row" style="margin-top:10px;">
+        <label>Quantity</label>
+        <input id="quantity" type="number" min="1" value="1" onchange="updateTotal()">
+      </div>
+      <div class="form-row" style="margin-top:10px;">
+        <label>Name</label>
+        <input id="buyerName" type="text" placeholder="Full name">
+      </div>
+      <div class="form-row" style="margin-top:10px;">
+        <label>Email</label>
+        <input id="buyerEmail" type="email" placeholder="you@example.com">
+      </div>
+
+      <div id="orderSummary" class="order-summary">
+        <div>Price per seat: <span id="pricePer">£0.00</span></div>
+        <div>Quantity: <span id="summaryQty">1</span></div>
+        <div>Service fee: <span id="serviceFee">£0.00</span></div>
+        <div style="font-weight:700; margin-top:8px;">Total: <span id="totalPrice">£0.00</span></div>
+      </div>
+
+      <div class="order-actions">
+        <button class="btn btn-primary" onclick="confirmPurchase()">Purchase</button>
+        <button class="btn" onclick="closePurchase()">Cancel</button>
+      </div>
+    </section>
+
+    <section id="orders" class="orders-list hidden">
+      <h2>My Orders</h2>
+      <div id="ordersContainer"></div>
+      <div style="text-align:center; margin-top:12px;"><button class="btn" onclick="clearOrders()">Clear Orders</button></div>
+    </section>
+
+    <section id="confirmation" class="order-confirm hidden">
+      <h2>Order Confirmed</h2>
+      <div id="confirmationDetails" class="order-summary"></div>
+    </section>
+
+    <section id="ticket-info">
+      <h2>Ticket Information</h2>
+      <p>Find out about ticket prices, seating options, and matchday information. This is a demo checkout — no payments are processed here.</p>
+    </section>
+    
+
+    </script>
+    
+  </main>
 </body>
 </html>
