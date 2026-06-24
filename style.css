@@ -760,6 +760,203 @@ button:hover {
 .incorrect {
     color: red;
 }
+
+/* ===== ACADEMY PAGE ===== */
+.academy-page {
+  padding: 0;
+  max-width: none;
+}
+
+.academy-page section {
+  padding: 60px 40px;
+}
+
+.academy-hero {
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(90deg, rgba(18, 18, 18, 0.82), rgba(18, 18, 18, 0.36)),
+    url("images/Arsenal emirates stadium 2021 ✌️😍.jpeg") center/cover;
+  color: white;
+}
+
+.academy-hero-content {
+  width: min(720px, 100%);
+  margin-left: max(0px, calc((100vw - 1200px) / 2));
+}
+
+.academy-hero h1 {
+  font-size: clamp(42px, 7vw, 78px);
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+.academy-hero p {
+  max-width: 650px;
+  margin-bottom: 28px;
+  font-size: 1.12rem;
+  color: #f4f4f4;
+}
+
+.academy-hero .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.academy-intro,
+.academy-pathway,
+.academy-prospects,
+.academy-values,
+.academy-apply {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.academy-intro {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 35px;
+  align-items: center;
+}
+
+.academy-intro p {
+  max-width: 700px;
+  color: #555;
+}
+
+.academy-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.academy-stats div {
+  background: #111;
+  color: white;
+  border-top: 4px solid #FFD700;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.academy-stats strong {
+  display: block;
+  color: #FFD700;
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+}
+
+.academy-stats span {
+  font-size: 0.9rem;
+  color: #f1f1f1;
+}
+
+.academy-pathway {
+  background: #f7f7f7;
+}
+
+.pathway-grid,
+.prospect-grid,
+.values-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+.pathway-card,
+.prospect-card,
+.values-list div {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.pathway-card,
+.values-list div {
+  padding: 26px;
+  border-left: 5px solid #DC143C;
+}
+
+.pathway-card h3,
+.prospect-card h3,
+.values-list h3 {
+  color: #DC143C;
+  margin-bottom: 10px;
+}
+
+.pathway-card p,
+.prospect-card p,
+.values-list p {
+  color: #555;
+}
+
+.prospect-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+}
+
+.prospect-card div {
+  padding: 20px;
+}
+
+.academy-values {
+  background: #fff;
+}
+
+.academy-apply {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: #DC143C;
+  color: white;
+  border-radius: 8px;
+  margin-bottom: 50px;
+}
+
+.academy-apply h2 {
+  color: white;
+  margin-bottom: 12px;
+}
+
+.academy-apply p {
+  max-width: 720px;
+  color: #fff4f4;
+}
+
+.academy-apply .btn {
+  flex: 0 0 auto;
+  text-decoration: none;
+}
+
+@media (max-width: 850px) {
+  .academy-page section {
+    padding: 45px 20px;
+  }
+
+  .academy-hero {
+    min-height: 460px;
+    background:
+      linear-gradient(rgba(18, 18, 18, 0.72), rgba(18, 18, 18, 0.72)),
+      url("images/Arsenal emirates stadium 2021 ✌️😍.jpeg") center/cover;
+  }
+
+  .academy-intro,
+  .academy-apply {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .academy-stats {
+    grid-template-columns: 1fr;
+  }
+}
 .achievements{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
