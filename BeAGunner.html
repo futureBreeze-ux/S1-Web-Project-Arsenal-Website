@@ -77,7 +77,36 @@
       </div>
     </section>
   </main>
+<script> 
 
+    const form = document.getElementById('register-form'); 
+
+    const ageField = document.getElementById('age'); 
+
+    const experienceGroup = document.getElementById('experience-group'); 
+
+    const ageGroup = document.getElementById('age-group'); 
+
+    const result = document.getElementById('form-result'); 
+
+ 
+
+    function updateFormFields() { 
+
+      const applicationType = document.querySelector('input[name="applicationType"]:checked').value; 
+
+      const isAcademy = applicationType === 'academy'; 
+
+ 
+
+      experienceGroup.style.display = isAcademy ? 'block' : 'none'; 
+
+      ageGroup.style.display = isAcademy ? 'block' : 'none'; 
+
+      ageField.required = isAcademy; 
+
+    } 
+</script>
   
 </body>
 </html>
