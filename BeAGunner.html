@@ -106,7 +106,103 @@
       ageField.required = isAcademy; 
 
     } 
-</script>
+
+ 
+
+    document.querySelectorAll('input[name="applicationType"]').forEach(function (input) { 
+
+      input.addEventListener('change', updateFormFields); 
+
+    }); 
+
+ 
+
+    updateFormFields(); 
+
+ 
+
+    form.addEventListener('submit', function (event) { 
+
+      event.preventDefault(); 
+
+ 
+
+      const fullName = document.getElementById('fullName').value.trim(); 
+
+      const email = document.getElementById('email').value.trim(); 
+
+      const age = Number(ageField.value); 
+
+      const experience = document.getElementById('experience').value; 
+
+      const applicationType = document.querySelector('input[name="applicationType"]:checked').value; 
+
+ 
+
+      let message = ''; 
+
+      let statusClass = 'success'; 
+
+ 
+
+      if (!fullName || !email) { 
+
+        message = 'Please complete your name and email to continue.'; 
+
+        statusClass = 'error'; 
+
+      } else if (applicationType === 'fan') { 
+
+        message = `<strong>Thanks, ${fullName}!</strong> You are now signed up for the Arsenal newsletter. Look out for club news, match updates, and fan offers sent to ${email}.`; 
+
+        statusClass = 'success'; 
+
+      } else { 
+
+        const minAge = 16; 
+
+        const maxAge = 21; 
+
+ 
+
+        if (!age) { 
+
+          message = '<strong>Academy eligibility check:</strong> Please enter your age to continue.'; 
+
+          statusClass = 'error'; 
+
+        } else if (age < minAge || age > maxAge) { 
+
+          message = `<strong>Academy eligibility check:</strong> The Arsenal Academy normally looks for applicants aged ${minAge} to ${maxAge}. Your age of ${age} falls outside that range.`; 
+
+          statusClass = 'error'; 
+
+        } else if (experience !== 'yes') { 
+
+          message = '<strong>Academy eligibility check:</strong> Applicants with organised football experience are preferred. Keep training and try again when you have played regularly.'; 
+
+          statusClass = 'warning'; 
+
+        } else { 
+
+          message = `<strong>Well done, ${fullName}!</strong> Based on your age and football experience, you are eligible to apply for the Academy. We recommend attending an Arsenal trial day or open training session.`; 
+
+          statusClass = 'success'; 
+
+        } 
+
+      } 
+
+ 
+
+      result.innerHTML = message; 
+
+      result.className = 'form-result ' + statusClass; 
+
+    }); 
+
+  </script> 
+ 
   
 </body>
 </html>
