@@ -20,8 +20,64 @@
 
   </nav>
   <main>
-    <h1>Be A Gunner</h1>
-    <p>Join the Arsenal community and become a Gunner.</p>
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-tag">Be A Gunner</span>
+        <h1>Sign up for the Gunner newsletter or check Academy eligibility</h1>
+        <p>Register for Arsenal news and fan updates, or see if you qualify to apply to the Academy.</p>
+      </div>
+      <div class="hero-image-frame">
+        <img class="hero-image" src="images/Arsenal emirates stadium 2021 ✌️😍.jpeg" alt="Emirates Stadium" />
+      </div>
+    </section>
+
+    <section class="registration-section">
+      <div class="form-card">
+        <h2>Fan newsletter signup and Academy eligibility</h2>
+        <p>Choose whether you want to join the newsletter or check Academy eligibility, then submit the form.</p>
+
+        <form id="register-form">
+          <div class="radio-row">
+            <label><input type="radio" name="applicationType" value="fan" checked /> Fan Newsletter Signup</label>
+            <label><input type="radio" name="applicationType" value="academy" /> Academy Eligibility</label>
+          </div>
+
+          <div class="form-group">
+            <label for="fullName">Full name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Your name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          </div>
+
+          <div class="form-group optional-field" id="age-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" min="8" placeholder="Enter your age" />
+          </div>
+
+          <div class="form-group optional-field" id="experience-group">
+            <label for="experience">Do you play organised football?</label>
+            <select id="experience" name="experience">
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="favoritePlayer">Your favourite Arsenal player</label>
+            <input type="text" id="favoritePlayer" name="favoritePlayer" placeholder="e.g. Bukayo Saka" />
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <div id="form-result" class="form-result" aria-live="polite"></div>
+      </div>
+    </section>
   </main>
+
+  
 </body>
 </html>
