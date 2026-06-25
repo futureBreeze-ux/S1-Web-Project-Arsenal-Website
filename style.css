@@ -581,23 +581,31 @@ section h2 {
 
 /* ===== ACADEMY PAGE STYLES ===== */
 .academy-page {
-  background-color: #f5f1f1;
+  background-color: #f4f2f2;
 }
 
-.academy-intro,
-.academy-training,
-.academy-pathway,
-.academy-prospects,
-.academy-gallery-section,
-.academy-video-section,
-.academy-values,
-.academy-quiz,
-.academy-apply {
+.academy-page section:not(.hero) {
   background: white;
-  border-radius: 20px;
+  border-radius: 18px;
   padding: 40px;
   margin-top: 30px;
-  box-shadow: 0 14px 40px rgba(0,0,0,0.06);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.08);
+}
+
+.academy-page .academy-hero,
+.academy-page .hero {
+  margin-bottom: 30px;
+}
+
+.academy-page .academy-apply {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.academy-page .academy-apply p {
+  max-width: 720px;
 }
 
 .academy-intro {
@@ -1237,12 +1245,14 @@ button:hover {
 
 /* ===== ACADEMY PAGE ===== */
 .academy-page {
-  padding: 0;
-  max-width: none;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: transparent;
 }
 
 .academy-page section {
-  padding: 60px 40px;
+  padding: 50px 40px;
 }
 
 .academy-hero {
@@ -1287,6 +1297,9 @@ button:hover {
 .academy-apply {
   max-width: 1200px;
   margin: 0 auto;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
 }
 
 .academy-intro {
