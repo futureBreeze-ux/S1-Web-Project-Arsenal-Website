@@ -518,6 +518,376 @@ section h2 {
   border-left: 6px solid #DC143C;
 }
 
+.purchase-panel,
+.orders-list,
+.order-confirm,
+#ticket-info {
+  background: white;
+  border-radius: 18px;
+  padding: 35px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.08);
+  margin-top: 30px;
+}
+
+.form-row {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.form-row label {
+  font-weight: bold;
+  color: #333;
+}
+
+.form-row input,
+.form-row select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 15px;
+  background: #fff;
+}
+
+.order-summary {
+  background: #f8f2f2;
+  padding: 22px;
+  border-radius: 14px;
+  margin-top: 20px;
+}
+
+.order-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.order-card {
+  background: white;
+  border: 1px solid #eee;
+  padding: 22px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  margin-bottom: 18px;
+}
+
+.orders-list.hidden,
+.order-confirm.hidden,
+.purchase-panel.hidden {
+  display: none;
+}
+
+/* ===== ACADEMY PAGE STYLES ===== */
+.academy-page {
+  background-color: #f5f1f1;
+}
+
+.academy-intro,
+.academy-training,
+.academy-pathway,
+.academy-prospects,
+.academy-gallery-section,
+.academy-video-section,
+.academy-values,
+.academy-quiz,
+.academy-apply {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  margin-top: 30px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.06);
+}
+
+.academy-intro {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.academy-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(140px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.academy-stats div {
+  background: #f8f2f2;
+  border-radius: 18px;
+  padding: 26px;
+  text-align: center;
+}
+
+.academy-stats strong {
+  display: block;
+  color: #DC143C;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.academy-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.academy-tab {
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #333;
+  padding: 14px 22px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.academy-tab.active,
+.academy-tab:hover {
+  background: #DC143C;
+  color: white;
+  border-color: transparent;
+}
+
+.academy-tab-panel {
+  display: none;
+  gap: 30px;
+  align-items: center;
+}
+
+.academy-tab-panel.active {
+  display: flex;
+}
+
+.academy-tab-panel img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+}
+
+.pathway-grid,
+.prospect-grid,
+.academy-gallery,
+.academy-video-grid,
+.values-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.pathway-card,
+.prospect-card,
+.academy-gallery-item,
+.academy-video-card {
+  background: #f8f2f2;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.pathway-card {
+  padding: 28px;
+}
+
+.prospect-card img,
+.academy-video-card img,
+.academy-gallery-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.prospect-card div,
+.academy-video-card div,
+.academy-gallery-item span,
+.values-list div {
+  padding: 24px;
+}
+
+.prospect-card h3,
+.academy-video-card h3,
+.values-list h3,
+.pathway-card h3 {
+  color: #DC143C;
+  margin-bottom: 12px;
+}
+
+.academy-gallery-item {
+  display: grid;
+  gap: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.academy-gallery-item span {
+  font-weight: bold;
+  color: #DC143C;
+  text-align: center;
+}
+
+.academy-video-card {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 18px;
+  align-items: center;
+}
+
+.academy-video-card h3 {
+  margin-top: 0;
+}
+
+.academy-values .values-list div {
+  border-radius: 16px;
+  background: white;
+  padding: 24px;
+}
+
+.academy-quiz .quiz-card {
+  background: #f8f2f2;
+  padding: 28px;
+  border-radius: 18px;
+}
+
+.quiz-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.quiz-options button {
+  flex: 1 1 150px;
+  border: 1px solid #ddd;
+  background: white;
+  color: #333;
+  border-radius: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.quiz-options button:hover {
+  transform: translateY(-2px);
+  background: #f4f4f4;
+}
+
+.correct {
+  color: #1f5f35;
+  margin-top: 18px;
+  font-weight: 700;
+}
+
+.incorrect {
+  color: #7b1f2b;
+  margin-top: 18px;
+  font-weight: 700;
+}
+
+.academy-apply {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.academy-lightbox {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.85);
+  z-index: 999;
+}
+
+.academy-lightbox.hidden {
+  display: none;
+}
+
+.academy-lightbox-content {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  background: white;
+  border-radius: 22px;
+  padding: 28px;
+  text-align: center;
+}
+
+.academy-lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: none;
+  background: #DC143C;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+footer {
+  background: #111;
+  color: #eee;
+  padding: 40px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-col h3 {
+  color: #FFD700;
+  margin-bottom: 14px;
+}
+
+.footer-col p,
+.footer-links a {
+  color: #ddd;
+  line-height: 1.8;
+}
+
+.footer-links a {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.footer-links a:hover {
+  color: #FFD700;
+}
+
+.footer-note {
+  margin-top: 30px;
+  text-align: center;
+  color: #999;
+}
+
+@media (max-width: 900px) {
+  .academy-intro,
+  .academy-video-card,
+  .academy-apply,
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+
+  .academy-video-card {
+    grid-template-columns: 1fr;
+  }
+}
+
 .ticket-meta {
   display: flex;
   justify-content: space-between;
