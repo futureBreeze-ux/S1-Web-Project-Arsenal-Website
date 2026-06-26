@@ -756,6 +756,93 @@ section h2 {
   }
 }
 
+/* ===== MEETINGS PAGE ===== */
+.meetings-page {
+  display: grid;
+  gap: 30px;
+}
+
+.meetings-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/Arsenal emirates stadium 2021 ✌️😍.jpeg') center/cover;
+  color: white;
+  padding: 80px 40px;
+  border-radius: 16px;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.meetings-hero .hero-content {
+  max-width: 700px;
+}
+
+.meetings-hero h1 {
+  font-size: clamp(36px, 5vw, 56px);
+  margin-bottom: 16px;
+}
+
+.meetings-hero p {
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+  color: #f3f3f3;
+}
+
+.meetings-overview,
+.meetups-section,
+.meetings-cta {
+  background: white;
+  padding: 36px;
+  border-radius: 16px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+.meetings-overview h2,
+.meetups-section h2,
+.meetings-cta h2 {
+  color: #DC143C;
+  margin-bottom: 20px;
+}
+
+.meetup-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.meetup-card {
+  background: #f8f8f8;
+  border-left: 4px solid #DC143C;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.meetup-card h3 {
+  color: #DC143C;
+  margin-bottom: 8px;
+}
+
+.meetup-area {
+  font-weight: bold;
+  color: #8b0f26;
+  margin-bottom: 8px;
+}
+
+.meetings-cta {
+  background: linear-gradient(90deg, #DC143C, #8b0f26);
+  color: white;
+}
+
+.meetings-cta p {
+  color: #f8e1e4;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 900px) {
+  .meetings-hero {
+    padding: 56px 24px;
+  }
+}
+
 /* ===== TICKETS PAGE ADDITIONS ===== */
 .ticket-list {
   display: grid;
