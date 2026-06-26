@@ -21,6 +21,223 @@
   </nav>
 
   <main class="shop-page">
-    
+    <header class="shop-hero">
+      <div class="shop-hero-content">
+        <span class="hero-tag">Official Store</span>
+        <h1>Arsenal Shop</h1>
+        <p>Find match shirts, training wear, scarves, and supporter essentials for every Gunner.</p>
+        <div class="cta-buttons">
+          <a class="btn btn-primary" href="#products">Shop Now</a>
+          <a class="btn btn-secondary" href="#cart">View Cart</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="shop-feature-row">
+      <div>
+        <strong>Free Click & Collect</strong>
+        <span>Pick up from the club store on matchday.</span>
+      </div>
+      <div>
+        <strong>Custom Printing</strong>
+        <span>Add your favourite name and number.</span>
+      </div>
+      <div>
+        <strong>Gift Ready</strong>
+        <span>Supporter gifts for adults, kids, and collectors.</span>
+      </div>
+    </section>
+
+    <section id="products" class="shop-products">
+      <div class="section-heading">
+        <span class="hero-tag">Featured</span>
+        <h2>Popular Picks</h2>
+      </div>
+
+      <div class="shop-grid">
+        <article class="shop-card">
+          <img src="images/arsenal fc.jpeg" alt="Arsenal home shirt">
+          <div class="shop-card-body">
+            <span class="product-category">Kit</span>
+            <h3>Home Shirt</h3>
+            <p>Classic red home colours for matchday and everyday support.</p>
+            <div class="product-footer">
+              <strong>GBP 80</strong>
+              <button class="btn btn-primary" onclick="addToCart('Home Shirt', 80)">Add</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="shop-card">
+          <img src="images/bukayo saka.jpeg" alt="Arsenal player shirt inspiration">
+          <div class="shop-card-body">
+            <span class="product-category">Player</span>
+            <h3>Saka 7 Shirt</h3>
+            <p>A fan favourite shirt with star-player inspired printing.</p>
+            <div class="product-footer">
+              <strong>GBP 95</strong>
+              <button class="btn btn-primary" onclick="addToCart('Saka 7 Shirt', 95)">Add</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="shop-card">
+          <img src="images/Red Army_#GunnersWeAre_.jpeg" alt="Arsenal scarf in crowd">
+          <div class="shop-card-body">
+            <span class="product-category">Accessories</span>
+            <h3>Red Army Scarf</h3>
+            <p>Warm, bold, and made for singing from the stands.</p>
+            <div class="product-footer">
+              <strong>GBP 25</strong>
+              <button class="btn btn-primary" onclick="addToCart('Red Army Scarf', 25)">Add</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="shop-card">
+          <img src="images/Arsenal the greatest.jpeg" alt="Arsenal supporters merchandise">
+          <div class="shop-card-body">
+            <span class="product-category">Lifestyle</span>
+            <h3>Cannon Hoodie</h3>
+            <p>A soft everyday layer with a clean Arsenal crest design.</p>
+            <div class="product-footer">
+              <strong>GBP 60</strong>
+              <button class="btn btn-primary" onclick="addToCart('Cannon Hoodie', 60)">Add</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="shop-card">
+          <img src="images/arsenal women sep24.jpeg" alt="Arsenal womens training wear">
+          <div class="shop-card-body">
+            <span class="product-category">Training</span>
+            <h3>Training Top</h3>
+            <p>Lightweight training wear inspired by the squad's session kit.</p>
+            <div class="product-footer">
+              <strong>GBP 48</strong>
+              <button class="btn btn-primary" onclick="addToCart('Training Top', 48)">Add</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="shop-card">
+          <img src="images/Arsenal.jpeg" alt="Arsenal cap and club colours">
+          <div class="shop-card-body">
+            <span class="product-category">Gifts</span>
+            <h3>Crest Cap</h3>
+            <p>A simple supporter essential with adjustable fit.</p>
+            <div class="product-footer">
+              <strong>GBP 22</strong>
+              <button class="btn btn-primary" onclick="addToCart('Crest Cap', 22)">Add</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="cart" class="shop-cart-section">
+      <div class="cart-copy">
+        <span class="hero-tag">Demo Basket</span>
+        <h2>Your Cart</h2>
+        <p>Add items from the shop and check the estimated total. This demo does not process payments.</p>
+      </div>
+
+      <div class="cart-panel">
+        <div id="cartItems" class="cart-items">
+          <p class="empty-cart">Your cart is empty.</p>
+        </div>
+        <div class="cart-total">
+          <span>Total</span>
+          <strong id="cartTotal">GBP 0</strong>
+        </div>
+        <form class="checkout-form" onsubmit="confirmOrder(event)">
+          <label for="customerName">Name</label>
+          <input id="customerName" type="text" placeholder="Full name" required>
+
+          <label for="customerEmail">Email</label>
+          <input id="customerEmail" type="email" placeholder="you@example.com" required>
+
+          <button class="btn btn-primary" type="submit">Checkout</button>
+          <button class="btn clear-cart-btn" type="button" onclick="clearCart()">Clear Cart</button>
+          <p id="shopMessage" class="booking-message"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Arsenal FC. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const cart = [];
+
+    function addToCart(name, price) {
+      const item = cart.find(product => product.name === name);
+      if (item) {
+        item.quantity += 1;
+      } else {
+        cart.push({ name, price, quantity: 1 });
+      }
+      renderCart();
+      document.getElementById('cart').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function removeFromCart(name) {
+      const index = cart.findIndex(product => product.name === name);
+      if (index !== -1) {
+        cart.splice(index, 1);
+      }
+      renderCart();
+    }
+
+    function renderCart() {
+      const cartItems = document.getElementById('cartItems');
+      const cartTotal = document.getElementById('cartTotal');
+      const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+      if (cart.length === 0) {
+        cartItems.innerHTML = '<p class="empty-cart">Your cart is empty.</p>';
+      } else {
+        cartItems.innerHTML = cart.map(item => `
+          <div class="cart-item">
+            <div>
+              <strong>${item.name}</strong>
+              <span>Qty ${item.quantity} x GBP ${item.price}</span>
+            </div>
+            <button type="button" onclick="removeFromCart('${item.name}')">Remove</button>
+          </div>
+        `).join('');
+      }
+
+      cartTotal.textContent = 'GBP ' + total;
+    }
+
+    function clearCart(keepMessage) {
+      cart.length = 0;
+      renderCart();
+      if (!keepMessage) {
+        document.getElementById('shopMessage').textContent = '';
+      }
+    }
+
+    function confirmOrder(event) {
+      event.preventDefault();
+      const message = document.getElementById('shopMessage');
+      const name = document.getElementById('customerName').value.trim();
+
+      if (cart.length === 0) {
+        message.textContent = 'Please add at least one item before checkout.';
+        message.className = 'booking-message error';
+        return;
+      }
+
+      message.textContent = 'Thanks, ' + name + '. Your Arsenal shop order has been received in this demo.';
+      message.className = 'booking-message success';
+      clearCart(true);
+      document.getElementById('customerName').value = '';
+      document.getElementById('customerEmail').value = '';
+    }
+  </script>
 </body>
 </html>
