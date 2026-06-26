@@ -584,6 +584,307 @@ section h2 {
   background-color: #f4f2f2;
 }
 
+/* ===== STADIUM TOURS PAGE ===== */
+.stadium-tours-page {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stadium-tours-page section {
+  padding: 50px 40px;
+}
+
+.tour-hero {
+  min-height: 540px;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(90deg, rgba(12, 12, 12, 0.86), rgba(12, 12, 12, 0.28)),
+    url("images/Emirates stadium Arsenal.jpeg") center/cover;
+  color: white;
+  padding: 80px 50px;
+  border-radius: 8px;
+}
+
+.tour-hero-content {
+  max-width: 720px;
+}
+
+.tour-hero h1 {
+  font-size: clamp(44px, 7vw, 82px);
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+.tour-hero p {
+  max-width: 650px;
+  margin-bottom: 28px;
+  color: #f3f3f3;
+  font-size: 1.1rem;
+}
+
+.tour-hero .btn,
+.tour-card .btn,
+.booking-form .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.tour-intro,
+.tour-options,
+.tour-route,
+.tour-booking,
+.tour-gallery-band {
+  margin-top: 30px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+.tour-intro {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.tour-intro p,
+.booking-copy p,
+.tour-gallery-band p {
+  color: #555;
+  max-width: 720px;
+}
+
+.tour-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.tour-stats div {
+  background: #111;
+  color: white;
+  border-top: 4px solid #FFD700;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.tour-stats strong {
+  display: block;
+  color: #FFD700;
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+.tour-stats span {
+  color: #efefef;
+  font-size: 0.92rem;
+}
+
+.tour-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.tour-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #eee;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.tour-card.featured-tour {
+  border-top: 5px solid #FFD700;
+}
+
+.tour-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+}
+
+.tour-card div {
+  padding: 22px;
+}
+
+.tour-card h3,
+.route-list h3 {
+  color: #DC143C;
+  margin-bottom: 10px;
+}
+
+.tour-card p,
+.route-list p {
+  color: #555;
+}
+
+.tour-price {
+  display: block;
+  margin: 18px 0 12px;
+  color: #111;
+  font-weight: bold;
+}
+
+.route-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.route-list div {
+  border-left: 5px solid #DC143C;
+  background: #f7f7f7;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.route-list span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 16px;
+  background: #111;
+  color: #FFD700;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.tour-booking {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 35px;
+  align-items: start;
+  background: #f7f7f7;
+}
+
+.booking-form {
+  background: white;
+  border-radius: 8px;
+  padding: 28px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.booking-form .form-row {
+  display: grid;
+  gap: 8px;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.booking-form .form-row label {
+  min-width: 0;
+  font-weight: bold;
+}
+
+.booking-form .form-row input,
+.booking-form .form-row select {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.tour-total {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+  background: #111;
+  color: white;
+  border-radius: 8px;
+  padding: 18px;
+  margin: 8px 0 18px;
+}
+
+.tour-total strong {
+  color: #FFD700;
+  font-size: 1.3rem;
+}
+
+.booking-message {
+  min-height: 26px;
+  margin-top: 14px;
+  font-weight: bold;
+}
+
+.booking-message.success {
+  color: #1f5f35;
+}
+
+.tour-gallery-band {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.tour-gallery {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-rows: repeat(2, 180px);
+  gap: 14px;
+}
+
+.tour-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.tour-gallery img:first-child {
+  grid-row: span 2;
+}
+
+@media (max-width: 850px) {
+  .stadium-tours-page {
+    padding: 24px 16px;
+  }
+
+  .stadium-tours-page section,
+  .tour-hero {
+    padding: 42px 22px;
+  }
+
+  .tour-hero {
+    min-height: 460px;
+    background:
+      linear-gradient(rgba(12, 12, 12, 0.74), rgba(12, 12, 12, 0.74)),
+      url("images/Emirates stadium Arsenal.jpeg") center/cover;
+  }
+
+  .tour-intro,
+  .tour-booking,
+  .tour-gallery-band {
+    grid-template-columns: 1fr;
+  }
+
+  .tour-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .tour-gallery {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+
+  .tour-gallery img,
+  .tour-gallery img:first-child {
+    grid-row: auto;
+    height: 220px;
+  }
+}
+
 .academy-page section:not(.hero) {
   background: white;
   border-radius: 18px;

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stadium Tours - Arsenal Website</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -18,9 +19,166 @@
     <a href="Academy.html">Academy</a> |
     <a href="BeAGunner.html">Be A Gunner</a>
   </nav>
-  <main>
-    <h1>Stadium Tours</h1>
-    <p>Book stadium tours to see Emirates Stadium behind the scenes.</p>
+
+  <main class="stadium-tours-page">
+    <header class="tour-hero">
+      <div class="tour-hero-content">
+        <span class="hero-tag">Emirates Stadium</span>
+        <h1>Stadium Tours</h1>
+        <p>Step behind the scenes at the home of Arsenal. Explore the dressing room, walk the players' tunnel, visit pitchside, and relive the club's history in a matchday-inspired experience.</p>
+        <div class="cta-buttons">
+          <a class="btn btn-primary" href="#booking">Book a Tour</a>
+          <a class="btn btn-secondary" href="#tour-options">View Options</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="tour-intro">
+      <div>
+        <h2>See the Emirates like a Gunner</h2>
+        <p>Whether this is your first visit or your hundredth, the tour gives you time to take in the spaces usually reserved for players, coaches, media teams, and legends of the club.</p>
+      </div>
+      <div class="tour-stats">
+        <div>
+          <strong>60-90</strong>
+          <span>minutes of exploring</span>
+        </div>
+        <div>
+          <strong>4+</strong>
+          <span>iconic areas</span>
+        </div>
+        <div>
+          <strong>1886</strong>
+          <span>club heritage</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="tour-options" class="tour-options">
+      <h2>Choose Your Tour</h2>
+      <div class="tour-card-grid">
+        <article class="tour-card">
+          <img src="images/Emirates stadium Arsenal.jpeg" alt="Emirates Stadium exterior">
+          <div>
+            <h3>Classic Stadium Tour</h3>
+            <p>A relaxed self-guided route through the stadium's biggest behind-the-scenes areas.</p>
+            <span class="tour-price">From GBP 25</span>
+            <button class="btn btn-primary" onclick="selectTour('Classic Stadium Tour', 25)">Select</button>
+          </div>
+        </article>
+
+        <article class="tour-card featured-tour">
+          <img src="images/download (57).jpeg" alt="Emirates Stadium seating">
+          <div>
+            <h3>Matchday Memories Tour</h3>
+            <p>Follow the route from dressing room to pitchside with extra photo stops for fans.</p>
+            <span class="tour-price">From GBP 35</span>
+            <button class="btn btn-primary" onclick="selectTour('Matchday Memories Tour', 35)">Select</button>
+          </div>
+        </article>
+
+        <article class="tour-card">
+          <img src="images/Ian Wright joins Arsenal fans at Emirates Stadium___.jpeg" alt="Arsenal fans at Emirates Stadium">
+          <div>
+            <h3>Legend Experience</h3>
+            <p>A premium experience inspired by Arsenal icons, club stories, and memorable moments.</p>
+            <span class="tour-price">From GBP 60</span>
+            <button class="btn btn-primary" onclick="selectTour('Legend Experience', 60)">Select</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="tour-route">
+      <h2>What You Can Visit</h2>
+      <div class="route-list">
+        <div>
+          <span>01</span>
+          <h3>Dressing Room</h3>
+          <p>Stand where the squad prepares before walking out under the lights.</p>
+        </div>
+        <div>
+          <span>02</span>
+          <h3>Players' Tunnel</h3>
+          <p>Follow the same walk the team makes before kickoff.</p>
+        </div>
+        <div>
+          <span>03</span>
+          <h3>Pitchside</h3>
+          <p>Take in the view from the technical area and lower bowl.</p>
+        </div>
+        <div>
+          <span>04</span>
+          <h3>Media Room</h3>
+          <p>Pose for a press-conference moment after your tour.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="booking" class="tour-booking">
+      <div class="booking-copy">
+        <h2>Book Your Visit</h2>
+        <p>Use this demo form to plan your visit. Pick a tour, choose your date, and the page will estimate your total.</p>
+      </div>
+
+      <form class="booking-form" onsubmit="confirmTourBooking(event)">
+        <div class="form-row">
+          <label for="tourType">Tour Type</label>
+          <select id="tourType" onchange="updateTourTotal()">
+            <option value="Classic Stadium Tour|25">Classic Stadium Tour - GBP 25</option>
+            <option value="Matchday Memories Tour|35">Matchday Memories Tour - GBP 35</option>
+            <option value="Legend Experience|60">Legend Experience - GBP 60</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="tourDate">Date</label>
+          <input id="tourDate" type="date" required>
+        </div>
+
+        <div class="form-row">
+          <label for="tourGuests">Guests</label>
+          <input id="tourGuests" type="number" min="1" max="10" value="2" onchange="updateTourTotal()" required>
+        </div>
+
+        <div class="form-row">
+          <label for="tourName">Name</label>
+          <input id="tourName" type="text" placeholder="Full name" required>
+        </div>
+
+        <div class="form-row">
+          <label for="tourEmail">Email</label>
+          <input id="tourEmail" type="email" placeholder="you@example.com" required>
+        </div>
+
+        <div class="tour-total">
+          <span>Estimated Total</span>
+          <strong id="tourTotal">GBP 50</strong>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Confirm Booking</button>
+        <p id="tourBookingMessage" class="booking-message"></p>
+      </form>
+    </section>
+
+    <section class="tour-gallery-band">
+      <div>
+        <h2>Moments Worth Capturing</h2>
+        <p>Bring your camera for stadium views, tunnel photos, pitchside memories, and the kind of day that belongs in the group chat immediately.</p>
+      </div>
+      <div class="tour-gallery">
+        <img src="images/download (54).jpeg" alt="Emirates Stadium view">
+        <img src="images/download (55).jpeg" alt="Arsenal crowd view">
+        <img src="images/Arsenal the greatest.jpeg" alt="Arsenal club moment">
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <p>&copy; 2026 Arsenal FC. All rights reserved.</p>
+  </footer>
+
+
+  </script>
 </body>
 </html>
