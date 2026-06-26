@@ -178,7 +178,40 @@
     <p>&copy; 2026 Arsenal FC. All rights reserved.</p>
   </footer>
 
+  <script>
+    function parseTourSelection() {
+      const selected = document.getElementById('tourType').value.split('|');
+      return {
+        name: selected[0],
+        price: Number(selected[1])
+      };
+    }
 
+    function updateTourTotal() {
+      const tour = parseTourSelection();
+      const guests = Math.max(1, Number(document.getElementById('tourGuests').value || 1));
+      document.getElementById('tourTotal').textContent = 'GBP ' + (tour.price * guests);
+    }
+
+    function selectTour(name, price) {
+      document.getElementById('tourType').value = name + '|' + price;
+      updateTourTotal();
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function confirmTourBooking(event) {
+      event.preventDefault();
+      const tour = parseTourSelection();
+      const guests = Math.max(1, Number(document.getElementById('tourGuests').value || 1));
+      const date = document.getElementById('tourDate').value;
+      const name = document.getElementById('tourName').value.trim();
+      const message = document.getElementById('tourBookingMessage');
+
+      message.textContent = 'Thanks, ' + name + '. Your ' + tour.name + ' for ' + guests + ' guest(s) on ' + date + ' has been reserved in this demo.';
+      message.className = 'booking-message success';
+    }
+
+    updateTourTotal();
   </script>
 </body>
 </html>
